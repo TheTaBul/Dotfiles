@@ -1,0 +1,63 @@
+
+! ██╗░░██╗██████╗░███████╗███████╗░██████╗░██╗░░░██╗██████╗░░██████╗███████╗███████╗
+! ╚██╗██╔╝██╔══██╗██╔════╝██╔════╝██╔═══██╗██║░░░██║██╔══██╗██╔════╝██╔════╝██╔════╝
+! ░╚███╔╝░██████╔╝█████╗░░███████╗██║░░░██║██║░░░██║██████╔╝██║░░░░░█████╗░░███████╗
+! ░██╔██╗░██╔══██╗██╔══╝░░╚════██║██║░░░██║██║░░░██║██╔══██╗██║░░░░░██╔══╝░░╚════██║
+! ██╔╝░██╗██║░░██║███████╗███████║╚██████╔╝╚██████╔╝██║░░██║╚██████╗███████╗███████║
+! ╚═╝░░╚═╝╚═╝░░╚═╝╚══════╝╚══════╝░╚═════╝░░╚═════╝░╚═╝░░╚═╝░╚═════╝╚══════╝╚══════╝
+!
+! -----------------------------------
+Xft.dpi: 102
+!Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcddefault
+
+xcursor.theme:            Vanilla-DMZ
+xscreensaver.fade:   false
+xscreensaver.unfade: false
+! ===== urxvt =====
+URxvt.scrollBar: off
+URxvt.font: xft:monospace:size=12
+URxvt.internalBorder:     22
+! =================
+*background:	#1D1F28
+*foreground:	#FDFDFD
+*cursorColor:	#C574DD
+*color0:	#282A36
+*color1:	#F37F97
+*color2:	#5ADECD
+*color3:	#F2A272
+*color4:	#8897F4
+*color5:	#C574DD
+*color6:	#79E6F3
+*color7:	#FDFDFD
+*color8:	#F8F8F8
+*color9:	#FF4971
+*color10:	#18E3C8
+*color11:	#FF8037
+*color12:	#556FFF
+*color13:	#B043D1
+*color14:	#3FDCEE
+*color15:	#BEBEC1
+
+
+
+rofi.lines:				5
+rofi.eh:				2
+rofi.fullscreen:		false
+rofi.width:				100
+rofi.bw:				50
+rofi.separator-style:	none
+rofi.hide-scrollbar:	true
+
+!                  'background', 'border', 'separator'
+rofi.color-window: argb:c82d303b, #7c8389, #1d1f21
+! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
+rofi.color-normal: argb:031d1f21, #f3f4f5, argb:031d1f21, argb:031d1f21, #9575cd
+rofi.color-urgent: argb:031d1f21, #f3f4f5, argb:bc303541, argb:031d1f21, #9575cd
+rofi.color-active: argb:031d1f21, #f3f4f5, argb:031d1f21, argb:031d1f21, #9575cd
+rofi.font: System San Francisco Display 18
