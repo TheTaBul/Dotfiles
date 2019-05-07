@@ -1,0 +1,251 @@
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+[colors]
+foreground = ${xrdb:color8:#222}
+background = ${xrdb:color0:#222}
+foreground-inverse = ${xrdb:color0:#222}
+background-inverse = ${xrdb:color10:#222}
+foreground-faded = ${xrdb:color2:#222}
+background-raised = ${xrdb:color0:#222}
+foreground-prefix = ${xrdb:color2:#222}
+warning = ${xrdb:color3:#222}
+active-led = ${xrdb:color1:#222}
+
+
+[bar/bottom]
+bottom = true
+modules-right = date time xkeyboard
+width = 100%
+height = 28
+font-0 = Fira Mono Medium:pixelsize=15; 2
+font-1 = Font Awesome 5 Free:style=Solid:pixelsize=15; 2
+font-2 = Font Awesome 5 Free:style=Regular:pixelsize=9; 2
+font-3 = Font Awesome 5 Brands:pixelsize=9; 2
+font-4 = Font Awesome 5 Free:style=Solid:pixelsize=7; 2
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-size = 3
+line-color = #f00
+border-size = 0
+border-color = #000
+padding-left = 0
+padding-right = 0
+module-margin-left = 2
+module-margin-right = 0
+tray-position = right
+tray-padding = 2
+wm-restack = i3
+
+
+[bar/top]
+modules-left = i3
+modules-center = backlight volume battery
+modules-right = network wlan vpn
+width = 100%
+height = 27
+font-0 = Fira Mono Medium:pixelsize=11; 2
+font-1 = Font Awesome 5 Free:style=Solid:pixelsize=13; 2
+font-2 = Font Awesome 5 Free:style=Regular:pixelsize=9; 2
+font-3 = Font Awesome 5 Brands:pixelsize=9; 2
+font-4 = Font Awesome 5 Free:style=Solid:pixelsize=7; 2
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-size = 3
+line-color = #f00
+border-size = 0
+border-color = #000
+padding-left = 0
+padding-right = 0
+module-margin-left = 2
+module-margin-right = 0
+tray-position = right
+tray-padding = 2
+wm-restack = i3
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-prefix}
+label-layout = %layout%
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.warning}
+label-indicator-underline = ${colors.warning}
+
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+; focused = Active workspace on focused monitor
+label-focused = %index%: %icon%
+label-focused-foreground = ${colors.foreground-inverse}
+label-focused-background = ${colors.background-inverse}
+label-focused-padding = 1
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%: %icon%
+label-unfocused-foreground = ${colors.foreground-faded}
+label-unfocused-background = ${colors.background-raised}
+label-unfocused-padding = ${self.label-focused-padding}
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%: %icon%
+label-visible-background = ${self.label-focused-background}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%: %icon%
+label-urgent-background = ${colors.warning}
+label-urgent-padding = ${self.label-focused-padding}
+
+
+[module/wlan]
+type = internal/network
+interface = wlp2s0
+interval = 2.0
+
+format-disconnected-prefix = " "
+format-connected-prefix = "  "
+format-disconnected-prefix-foreground=${colors.active-led}
+format-connected-prefix-foreground=${colors.foreground-prefix}
+
+format-connected = " "
+format-disconnected = " "
+
+[module/vpn]
+type = internal/network
+interface = tun0
+interval = 2.0
+
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.foreground-prefix}
+format-connected = " "
+
+format-disconnected-prefix = " "
+format-disconnected-prefix-foreground=${colors.active-led}
+format-disconnected = " "
+
+[module/network]
+type = custom/script
+exec = ~/bin/net.sh
+
+[module/date]
+type = internal/date
+interval = 1
+format-prefix = 
+format-prefix-foreground=${colors.foreground-prefix}
+date = " %d %B %a"
+label = %date%
+
+
+[module/time]
+type = internal/date
+interval = 1
+format-prefix = " "
+format-prefix-foreground=${colors.foreground-prefix}
+time = %H:%M:%S
+label = %time%
+
+
+[module/volume]
+type = internal/alsa
+format-volume = <bar-volume> <label-volume>
+format-volume-prefix = " "
+format-volume-prefix-foreground=${colors.foreground-prefix}
+label-volume = %percentage%%
+label-volume-foreground = ${root.foreground}
+format-muted-prefix = " ━━━━━━━━━━━━━━━━━━━━  "
+format-muted-prefix-foreground=${colors.foreground}
+label-muted = 0%
+bar-volume-width = 20
+bar-volume-gradient = false
+bar-volume-indicator = ━
+bar-volume-indicator-font = 2
+bar-volume-indicator-foreground = ${colors.active-led}
+bar-volume-fill = ━
+bar-volume-fill-font = 2
+bar-volume-fill-foreground = ${colors.foreground-prefix}
+bar-volume-empty = ━
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground}
+
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 98
+interval = 1
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+
+format-full-prefix = "FULL "
+format-full-prefix-foreground = ${colors.foreground-prefix}
+
+ramp-capacity-foreground = ${colors.foreground-prefix}
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-charging-foreground = ${colors.foreground-prefix}
+animation-charging-0 =  
+animation-charging-1 =  
+animation-charging-2 =  
+animation-charging-3 =  
+animation-charging-4 =  
+animation-charging-framerate = 750
+
+
+[module/backlight]
+type = internal/xbacklight
+card = intel_backlight
+; Available tags:
+;   <label> (default)
+;   <ramp>
+;   <bar>
+format = <bar>
+
+; Available tokens:
+;   %percentage% (default)
+label = %percentage%%
+
+; Only applies if <ramp> is used
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+
+; Only applies if <bar> is used
+bar-width = 24
+bar-indicator = 
+bar-indicator-foreground = ${colors.foreground}
+bar-fill = —
+bar-empty = —
+
+
+[settings]
+screenchange-reload = true
+
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini

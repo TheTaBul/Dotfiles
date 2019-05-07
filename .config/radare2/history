@@ -1,0 +1,23 @@
+aaa
+s sym.main 
+pdf
+aaa
+pdf
+s sym.main 
+aaa
+pdf
+db 0x004005bd
+VV
+dc
+s sym.main 
+aaa
+pdf
+db 0x004005bd
+VV
+dc
+s sym.main 
+aaa
+pdf
+db 0x004005bd
+VV
+dc

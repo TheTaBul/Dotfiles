@@ -1,0 +1,47 @@
+open_with objdump
+rename padlock.png
+search S
+rename 
+rename Packages and fonts
+search uk-ma
+search Do
+search Cv
+search CV
+search De
+search Scre
+search Sc
+search lol
+search C
+rename theatre_tickets.pdf
+search ra
+search .conf
+search rofi
+search gnu
+
+search Dow
+open_with shell
+open_with bash
+find jjk
+open_with vim
+h
+open_with `
+find 
+find Des
+shell 
+find downloads
+find Desktop
+shell rm ./*.THM
+delete
+shell ls 
+shell pwd
+find Us
+search Desk
+search Adobe
+open_with wine
+open_with xsiv
+open_with sxiv
+search 
+open_with 
+shell mv %f ~/Movies
+shell mv %s ~/EGE
+shell mv %s ~/Movies
